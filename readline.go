@@ -1,13 +1,17 @@
 // Wrapper around the GNU readline(3) library
-
 package readline
 
 // TODO:
 //  implement a go-oriented command completion
 
 /*
- #cgo darwin CFLAGS: -I/opt/local/include
- #cgo darwin LDFLAGS: -L/opt/local/lib
+ // Homebrew on darwin include and linker flags
+ #cgo darwin,brew CFLAGS: -I/usr/local/opt/readline/include
+ #cgo darwin,brew LDFLAGS: -L/usr/local/opt/readline/lib
+
+ // Non-Homebrew darwin include and linker flags
+ #cgo darwin,!brew CFLAGS: -I/opt/local/include
+ #cgo darwin,!brew LDFLAGS: -L/opt/local/lib
  #cgo LDFLAGS: -lreadline
 
  #include <stdio.h>
